@@ -10,6 +10,7 @@ public class FarmerScript : MonoBehaviour
     public Transform resourceSpot, spawnPoint;
 
     [SerializeField] private string resourcePointName, spawnPointName;
+    [SerializeField] private GameObject explosionEffect;
 
     private bool GotResource;
     void Start()
@@ -31,6 +32,7 @@ public class FarmerScript : MonoBehaviour
         {
             if (other.CompareTag(spawnPointName))
             {
+                Instantiate(explosionEffect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }
